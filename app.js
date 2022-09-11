@@ -292,7 +292,7 @@ app.post("/completedtodo", async (req, res) => {
 
 // End of Protected Routes
 
-app.use('/', express.static(path.join(__dirname, 'build')))
+app.use('/', express.static('build'))
 // Set server to Listen State
 app.listen(port, () => {
   console.log("Hey app started at " + port);
