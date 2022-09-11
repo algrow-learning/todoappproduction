@@ -17,6 +17,8 @@ const jwt = require("jsonwebtoken"); // A library to implement JWT (JSON WEB TOK
 
 const cors = require("cors"); // use npm install cors to install cors module..
 
+const path = require('path') // for working with file system paths..
+
 dotenv.config(); // loads values from seperate file that we created in (.)env file..
 
 const app = express();
@@ -290,7 +292,7 @@ app.post("/completedtodo", async (req, res) => {
 
 // End of Protected Routes
 
-app.use(express.static("build"));
+app.use('/static', express.static(path.join(__dirname, 'public')))
 // Set server to Listen State
 app.listen(port, () => {
   console.log("Hey app started at " + port);
